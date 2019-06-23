@@ -44,12 +44,20 @@ $("#addTrainButton").on("click", function(event) {
 
 database.ref().on("child_added",function(childSnapshot){
     
-    console.log(childSnapshot.val());
-
-    //Storing data into variable
-
+    //Storing train name in firebase data into variable
     let trainName = childSnapshot.val().name;
-    console.log(trainName)
+    let destinationName = childSnapshot.val().destination;
+    let frequencyTime = childSnapshot.val().frequency;
+    let time = childSnapshot.val().firstTrainTime;
+    
+    //Create new row
+    let newRow = $("<tr>").append(
+        $("<td>").text(trainName),$("<td>").text(destinationName),
+        $("<td>").text(frequencyTime)
+    );
+
+    //// Append the new row to the table
+    $("#train-table > tbody").append(newRow);
 });
 
 /* 
