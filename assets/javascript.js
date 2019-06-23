@@ -31,14 +31,14 @@ $("#addTrainButton").on("click", function(event) {
 
     // Creates local "temporary" object for holding employee data
   var newTrain = {
-    name: empName,
-    role: ,
-    start: ,
-    rate:  
+    name: trainName,
+    destination: destinationName ,
+    time: firstTrainTime,
+    frequency: frequencyTime 
   };
 
   // Uploads employee data to the database
-  database.ref().push(newEmp);
+  database.ref().push(newTrain);
 
 });
 
