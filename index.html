@@ -24,9 +24,17 @@
 </head>
 <body>
         <div class="container">
-        
+
+                             <!-- Train Schedule header Row -->
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 text-info">
+                    <h2 class="border-bottom mb-4" >Train Schedule<p></p>
+                    </h2>
+                </div>
+            </div>
+
                 <!-- Table -->
-               <table class="table" id="employee-table">
+               <table class="table"  id="train-table">
                    <thead>
                        <tr>
                            <th scope="col">Train Name</th>
@@ -81,6 +89,63 @@
                     </tr>
                    </tbody>
                </table>
+       
+
+              <!-- Add Train header Row -->
+              <div class="row">
+                <div class="col-lg-12 col-sm-12 col-xs-12 text-info">
+                    <h2 class="border-bottom mb-4" >Add Train<p></p>
+                    </h2>
+                </div>
+            </div>
+    
+             <!-- Name Input Box Row -->
+             <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <lable for="example">Train Name</lable>
+                            <input type="text" class="form-control" id="name" placeholder="Enter Train">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Role Input Box Row -->
+                <div class="row">
+                    <div class="col-lg-12 col-sm-12 col-xs-12">
+                        <div class="form-group">
+                            <lable for="example">Destination</lable>
+                            <input type="text" class="form-control" id="name" placeholder="Role">
+                        </div>
+                    </div>
+                </div>
+        
+                  <!-- Start Date Input Box Row -->
+                  <div class="row">
+                        <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="form-group">
+                                <lable for="example">First Train Time</lable>
+                                <input type="text" class="form-control" id="name" placeholder="01/01/1999">
+                            </div>
+                        </div>
+                    </div>
+    
+                      <!-- Monthly Rate Input Box Row -->
+                      <div class="row">
+                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <lable for="example">Frequency</lable>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter Number here">
+                                </div>
+                            </div>
+                        </div>
+        
+                <!--Submit Button-->
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12 col-xs-12">
+                        <button type="button" class="btn bg-info btn-sm text-white" id="add-employee-btn">Submit</button>
+                    </div>
+                 </div>
+
         </div>
 <script src="assets/javascript.js"></script>
 </body>
