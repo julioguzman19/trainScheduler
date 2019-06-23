@@ -14,23 +14,27 @@
   };
   
 // Initialize Firebase
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database
 let database = firebase.database();
 
-$("#add-employee-btn").on("click", function(event) {
+//Submit on Click
+$("#addTrainButton").on("click", function(event) {
     event.preventDefault();
 
-    var empName = $("#name").val().trim();
-    console.log(empName);
+    //Getting info entered by user
+    let trainName = $("#trainName").val().trim();
+    let destinationName = $("#destinationName").val().trim();
+    let firstTrainTime = $("#firstTrainTime").val().trim();
+    let frequencyTime = $("#frequencyTime").val().trim();
 
-     // Creates local "temporary" object for holding employee data
-  var newEmp = {
+    // Creates local "temporary" object for holding employee data
+  var newTrain = {
     name: empName,
-   /*  role: empRole,
-    start: empStart,
-    rate: empRate */
+    role: ,
+    start: ,
+    rate:  
   };
 
   // Uploads employee data to the database
