@@ -29,7 +29,7 @@ $("#addTrainButton").on("click", function(event) {
     let firstTrainTime = $("#firstTrainTime").val().trim();
     let frequencyTime = $("#frequencyTime").val().trim();
 
-    // Creates local "temporary" object for holding employee data
+    // Creates local "temporary" object for holding train data
   var newTrain = {
     name: trainName,
     destination: destinationName ,
@@ -37,11 +37,20 @@ $("#addTrainButton").on("click", function(event) {
     frequency: frequencyTime 
   };
 
-  // Uploads employee data to the database
+  // Uploads train data to the database
   database.ref().push(newTrain);
 
 });
 
+database.ref().on("child_added",function(childSnapshot){
+    
+    console.log(childSnapshot.val());
+
+    //Storing data into variable
+
+    let trainName = childSnapshot.val().name;
+    console.log(trainName)
+});
 
 /* 
 // 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
