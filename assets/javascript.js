@@ -52,7 +52,6 @@ database.ref().on("child_added",function(childSnapshot){
 
     //Current time
     let currentTime = moment().format("HH:mm");
-    console.log(currentTime);
 
     //Math for calculating next arrival using first train time and current time and frequency
     
