@@ -84,25 +84,3 @@ database.ref().on("child_added",function(childSnapshot){
      
 });
 
-
-
-/* 
-// 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
-database.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val());
-  
-    // Store everything into a variable.
-    var empName = childSnapshot.val().name;
-  
-    // Employee Info
-    console.log(empName);
-    
-    // Create the new row
-    var newRow = $("<tr>").append(
-      $("<td>").text(empName)
-
-    );
-  
-    // Append the new row to the table
-    $("#employee-table > tbody").append(newRow);
-  }); */
