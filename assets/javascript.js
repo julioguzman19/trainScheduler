@@ -60,23 +60,22 @@ database.ref().on("child_added",function(childSnapshot){
     let firstTrainTimeMinutes = moment.duration(time).minutes();
     let currentTimeMinutes= moment.duration(currentTime).minutes();
     let diff = Math.abs(firstTrainTimeMinutes - currentTimeMinutes); //absolute value
-    console.log("Minutes Difference: " + diff);
 
     //Diff % frequency to get remainder to use to calculate minutes for next train
     let remainder = diff % frequencyTime;
-    console.log("Modulus: " + remainder)
 
-    //Minutes for next train
+    //Minutes away for next train
     let minutesNextTrain = frequencyTime - remainder;
 
     //Calculating next arrival 
     let nextArrival = moment().add(minutesNextTrain,"minutes")
-    console.log("NExt Train: " + moment(nextArrival).format("HH:mm"));
+    let nextArrivalConverted = moment(nextArrival).format("HH:mm");
 
     //Create new row
      newRow = $("<tr>").append(
         $("<td>").text(trainName),$("<td>").text(destinationName),
-        $("<td>").text(frequencyTime));
+        $("<td>").text(frequencyTime),$("<td>").text(nextArrivalConverted),
+        $("<td>").text(minutesNextTrain));
     
 
     //// Append the new row to the table
