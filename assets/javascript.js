@@ -62,12 +62,15 @@ database.ref().on("child_added",function(childSnapshot){
     let diff = Math.abs(firstTrainTimeMinutes - currentTimeMinutes); //absolute value
     console.log("Minutes Difference: " + diff);
 
-    //Diff % frequency to get minutes for next train
-    let remainderMinutes = diff % frequencyTime;
-    console.log("Minutes till next train: " + remainderMinutes)
+    //Diff % frequency to get remainder to use to calculate minutes for next train
+    let remainder = diff % frequencyTime;
+    console.log("Modulus: " + remainder)
+
+    //Minutes for next train
+    let minutesNextTrain = frequencyTime - remainder;
 
     //Calculating next arrival 
-    let nextArrival = moment().add(remainderMinutes,"minutes")
+    let nextArrival = moment().add(minutesNextTrain,"minutes")
     console.log("NExt Train: " + moment(nextArrival).format("HH:mm"));
 
     //Create new row
