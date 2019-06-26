@@ -80,7 +80,14 @@ database.ref().on("child_added",function(childSnapshot){
     //// Append the new row to the table
     $("#train-table > tbody").append(newRow);
 
+    //Clear button to remove database nodes and web html
+    $("#clear").on("click", function(event) {
+ 
+    database.ref().remove(); //clearing database
+    $("#train-table > tbody").empty();
+  
+  });
+  
 
-     
 });
 
