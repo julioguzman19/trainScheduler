@@ -1,8 +1,8 @@
 // Initialize Firebase
-// Make sure that your configuration matches your firebase script version
+// Make sure that my configuration matches my firebase script version
 // (Ex. 3.0 != 3.7.1)
 
-  // Your web app's Firebase configuration
+  // My web app's Firebase configuration
   var firebaseConfig = {
     apiKey: "AIzaSyCPfcR5EFD0XYWxvjx5QzemBtkitGKUXcw",
     authDomain: "trainscheduler-c58d5.firebaseapp.com",
@@ -16,21 +16,21 @@
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Create a variable to reference the database
+// Variable to reference the database
 let database = firebase.database();
 
-//Submit on Click
+// Submit on Click
 $("#addTrainButton").on("click", function(event) {
     event.preventDefault();
 
-    //Getting info entered by user
+    // Capturing user inputs
     let trainName = $("#trainName").val().trim();
     let destinationName = $("#destinationName").val().trim();
     let firstTrainTime = $("#firstTrainTime").val().trim();
     let frequencyTime = $("#frequencyTime").val().trim();
 
-    // Creates local "temporary" object for holding train data
-  var newTrain = {
+  // Creates local "temporary" object for holding train data
+  let newTrain = {
     name: trainName,
     destination: destinationName ,
     time: firstTrainTime,
@@ -44,50 +44,48 @@ $("#addTrainButton").on("click", function(event) {
 
 database.ref().on("child_added",function(childSnapshot){
     
-    //Storing train name in firebase data into variables
+    // Storing train name in firebase data into variables
     let trainName = childSnapshot.val().name;
     let destinationName = childSnapshot.val().destination;
     let frequencyTime = childSnapshot.val().frequency;
-    let time = childSnapshot.val().time; //in military time for first train
+    let time = childSnapshot.val().time; 
 
-    //Current time
+    // Current time
     let currentTime = moment().format("HH:mm");
 
-    //Math for calculating next arrival using first train time and current time and frequency
+    // Math for calculating next arrival using first train time and current time and frequency
     
-    //First Train vs currentTime minutes difference
+    // First Train vs currentTime minutes difference
     let firstTrainTimeMinutes = moment.duration(time).minutes();
     let currentTimeMinutes= moment.duration(currentTime).minutes();
-    let diff = Math.abs(firstTrainTimeMinutes - currentTimeMinutes); //absolute value
+    let diff = Math.abs(firstTrainTimeMinutes - currentTimeMinutes); 
 
-    //Diff % frequency to get remainder to use to calculate minutes for next train
+    // Diff % frequency to get remainder to use to calculate minutes for next train
     let remainder = diff % frequencyTime;
 
-    //Minutes away for next train
+    // Minutes away for next train
     let minutesNextTrain = frequencyTime - remainder;
 
-    //Calculating next arrival 
+    // Calculating next arrival 
     let nextArrival = moment().add(minutesNextTrain,"minutes")
     let nextArrivalConverted = moment(nextArrival).format("HH:mm");
 
-    //Create new row
+    // Appends new row
      newRow = $("<tr>").append(
         $("<td>").text(trainName),$("<td>").text(destinationName),
         $("<td>").text(frequencyTime),$("<td>").text(nextArrivalConverted),
         $("<td>").text(minutesNextTrain));
     
 
-    //// Append the new row to the table
+    // Append the new row to the table
     $("#train-table > tbody").append(newRow);
 
-    //Clear button to remove database nodes and web html
+    // Clear button to remove database nodes and web html
     $("#clear").on("click", function(event) {
- 
-    database.ref().remove(); //clearing database
+    database.ref().remove(); 
     $("#train-table > tbody").empty();
   
   });
   
-
 });
 
