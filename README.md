@@ -1,4 +1,4 @@
-# trainScheduler
+# TrainScheduler
 
 ## Objective:
 - Train Schedule with user input
