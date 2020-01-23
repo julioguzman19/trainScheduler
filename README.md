@@ -11,7 +11,7 @@
 - User Input of the frequency of train in minutes
 - App output: Train Name, Destination, Frequency, Next Time Arrival, Minutes until next Arrival
 
-![alt text](https://github.com/julioguzman19/ClickAndREACT/blob/master/react-folder/src/images/Layout.JPG)
+![alt text](https://github.com/julioguzman19/trainScheduler/blob/master/assets/images/Layout.JPG)
 
 ## Link for app via Heroku:
 
