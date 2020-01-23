@@ -13,7 +13,7 @@
 
 ![alt text](https://github.com/julioguzman19/trainScheduler/blob/master/assets/images/Layout.JPG)
 
-## Link for app via Heroku:
+## Link for app via GitHub:
 
 - https://julioguzman19.github.io/trainScheduler/
 
